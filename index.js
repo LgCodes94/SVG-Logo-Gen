@@ -1,6 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { Triangle, Circle, Square } = require('./lib/shapes');
+// const util = require('util');
+// const writeFile = util.promisify(fs.writeFile);
 
 function generateLogo() {
   inquirer
@@ -19,13 +21,13 @@ function generateLogo() {
       {
         type: "input",
         name: "ShapeColor",
-        message: "Enter shape color keyword or hexadecimal number",
+        message: "Enter shape color keyword or (hexadecimal number with #)",
       },
       {
         type: "list",
         name: "image",
         message: "Choose shape you like",
-        choice: ["Circle", "Square", "Triangle"],
+        choices: ["Circle", "Square", "Triangle"],
       }
     ])
     .then((response) => {
@@ -38,11 +40,7 @@ function generateLogo() {
     });
 }
 
-
-const util = require('util');
-const writeFile = util.promisify(fs.writeFile);
-
-function writeToFile(fileName, responses) {
+async function writeToFile(fileName, responses) {
   let svgString = '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
   svgString += '<g>';
 
@@ -69,7 +67,7 @@ function writeToFile(fileName, responses) {
   svgString += "</svg>";
 
   try {
-    fs.writeFile(fileName, svgString)
+    await fs.promises.writeFile(fileName, svgString)
       .then(() => {
         console.log("Generated logo.svg");
       })
