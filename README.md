@@ -28,3 +28,8 @@
   
   For any questions or inquiries, please email me at l.gonzalez6@me.com.
   
+  Link to video https://drive.google.com/file/d/1nb_43R5CI_f9B3EzQ8H1Cz1yMIE4ca0U/view
+
+  ![SVG Logo](<Screenshot 2023-12-01 181150.png>)
+
+  ![Terminal code](<Screenshot 2023-12-01 181116.png>)
